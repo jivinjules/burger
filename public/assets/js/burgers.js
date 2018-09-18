@@ -1,5 +1,5 @@
 $(function () {
-    $(".change-devour").on("click", function (event) {
+    $(".change-devour").on("click", function(event) {
         //ASK IN CLASS WHY THERE IS NO PREVENT DEFAULT
         var id = $(this).data("id");
         var newDevour = $(this).data("newdevour");
@@ -10,11 +10,11 @@ $(function () {
 
         //the PUT (UPDATE) request
 
-        $.ajax("/api/burger/" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newDevourState
         }).then(
-            function () {
+            function() {
                 console.log("changed devour to ", newDevour);
                 //Reload page
                 location.reload();
@@ -30,7 +30,7 @@ $(function () {
             devoured: $("[name=devoured]:checked").val().trim()
         };
 
-        $.ajax("/api/burger", {
+        $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
         }).then(
