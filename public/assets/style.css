@@ -61,4 +61,14 @@ h3 {
 
 button {
     
+    font-size: 15px;
+    background-color: #fcf0d7;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    height: 28px;
+}
+
+.card-body  {
+    line-height: 2;
 }
