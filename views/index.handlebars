@@ -3,59 +3,62 @@
     <h1>Welcome to Burger Hub!</h1>
 
     {{!-- ALL THE BURGERS TO EAT --}}
-    <div class="col-md-6 col-left">
-        <table>
-            <h2>These burgers are waiting to be devoured!</h2>
+    <div class="row">
+        <div class="col-md-6 col-left">
+            <div class="card-header">
+                <h2>These burgers are waiting to be devoured!</h2>
 
-           
-                {{#each burgers}} 
-                {{#unless devoured}} 
-                {{!-- ASK ABOUT THIS IN OFFICE HOURS --}} {{> burgers/burger-block devoured = true}}
-                {{/unless}} 
-                {{/each}}
-            
-        </table>
+            </div>
+            <div class="card-body">
+                <ul>
+
+                    {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devour = true}} {{/unless}} {{/each}}
+                </ul>
+            </div>
+        </div>
     </div>
 
 
     {{!-- DEVOURED BURGER BOXES --}}
-    <div class="col-md-6 col-right">
+    <div class="row">
+        <div class="col-md-6 col-right">
+            <div class="card-header" id="notDevoured">
 
-    <h2>These burgers have been devoured!</h2>
-    <table>
-   
-        {{#each burgers}} 
-        {{#if devoured}} 
-        {{> burgers/burger-block devoured=false}} 
-        {{/if}} 
-        {{/each}}
-    </table>
-
-      </div>  
-<div class="row">
-    <div class="col-md-12">
-
-
-    <h2>Add a burger</h2>
-
-    <form class="create-form">
-        <div class="form-group">
-            <label for="bur">Burger Name:</label>
-            <input type="text" id="bur" name="burger_name">
-
+                <h2>These burgers have been devoured!</h2>
+            </div>
+            <div class="card-body">
+                <ul>
+                    {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devour=false}} {{/if}} {{/each}}
+                </ul>
+            </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="devoured">Devour it?</label>
-            <br>
-            <input type="radio" name="devoured" value="1" checked> Devoured!
-            <br>
-            <input type="radio" name="devoured" value="0"> You ate it!
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <h2>Add a burger</h2>
+
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="bur">Burger Name:</label>
+                    <input type="text" id="bur" name="burger_name">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="devoured">Devour it now or devour it later?</label>
+                    <br>
+                    <input type="radio" name="devoured" value="1" checked> Hungry! Devour it now!
+                    <br>
+                    <input type="radio" name="devoured" value="0"> Save it for later.
+                </div>
+
+                <button type="submit">Add a Burger</button>
+            </form>
         </div>
-
-        <button type="submit">Add a Burger</button>
-    </form>
-</div>
     </div>
 
 </div>

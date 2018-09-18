@@ -8,11 +8,9 @@ $(function () {
             devoured: newDevour
         };
 
-
-
         //the PUT (UPDATE) request
 
-        $.ajax("/api/burgers/" + id, {
+        $.ajax("/api/burger/" + id, {
             type: "PUT",
             data: newDevourState
         }).then(
@@ -28,18 +26,18 @@ $(function () {
         event.preventDefault();
 
         var newBurger = {
-            name: $("#bur").val().trim(),
+            burger_name: $("#bur").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
 
-        $.ajax("/api/burgers", {
+        $.ajax("/api/burger", {
             type: "POST",
             data: newBurger
         }).then(
-            function () {
+            function() {
                 console.log("Created a new burger");
                 //Reload Page
-                locaction.reload();
+                location.reload();
 
             }
         );

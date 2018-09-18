@@ -53,9 +53,10 @@ insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
     queryString += " (";
     queryString += cols.toString();
+    queryString += ") ";
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
-    queryString += ")";
+    queryString += ") ";
     
     console.log(queryString);
 
@@ -67,11 +68,11 @@ insertOne: function(table, cols, vals, cb) {
     });
 },
 
-updateOne: function(table, obColsVals, condition, cb) {
+updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
-    queryString += objToSql(ObjColVals);
+    queryString += objToSql(objColVals);
     queryString +=  " WHERE ";
     queryString += condition;
 
